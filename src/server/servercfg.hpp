@@ -5,47 +5,65 @@
 #ifndef		SOCKET_SERVER_HPP
 #define		SOCKET_SERVER_HPP
 
-#include <stdio.h>
-#include <WS2tcpip.h>
+//#include "server_log.hpp"
+
 #include <WinSock2.h>
+#include <WS2tcpip.h>
+#include <iostream>
 #include <string>
+#include <vector>
+#include <algorithm>
+#include <cstdio>
+
 
 #pragma comment(lib, "ws2_32.lib")
 
+#endif
 
+constexpr int PORT = 9909;
 
-#ifndef     SERVER_ERROR_HANDLER
+namespace net {
 
-#define handle_error(msg) \
-        do { perror(msg); exit(EXIT_FAILURE); } while(0)
+    // server error handler
+    inline void handle_error(const char* msg)
+    {
 
-#endif      // !SERVER_ERROR_HANDLER
+        int err = WSAGetLastError();
+        fprintf(stderr, "[!] %s: WSA error %d\n", msg, err);
 
+        WSACleanup();
+        exit(EXIT_FAILURE);
 
-const int PORT = 9909;
+    }
 
-
-namespace s {
 
     class server {
 
     public:
 
         bool init();
-        
+
         void setupsock();
 
         void con_infos(char* host, char* service);
 
-        void multi_cons();
+        void handle_connections();
+        void normal_channel();
+
+        void multiplex();
+
 
     private:
 
         WSADATA ws;
+
         SOCKET server_sock, client_sock;
+
         sockaddr_in server_addr, client_addr;
+
         int serverlen = sizeof(server_addr);
-        char* buffer[1024];
+
+        char buffer = 1024;
 
     };
 
@@ -53,9 +71,3 @@ namespace s {
 
 #endif  	// !SOCKET_SERVER_HPP
 
-
-#elif defined(LINUX)
-
-
-
-#endif      // 
