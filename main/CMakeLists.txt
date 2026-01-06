@@ -5,10 +5,14 @@ add_executable(
     main
     "wscan.cpp"
     "wscan.h"
-    "../src/features/ping.cpp"
-    "../src/features/ping_config.hpp"
+    "../src/features/ping/ping.cpp"
+    "../src/features/ping/ping_config.hpp"
     "../src/server/server.cpp"
     "../src/server/servercfg.hpp"
+    "../src/common/net/socket.hpp"
+    "../src/common/net/socket.cpp"
+    "../src/common/config/config.hpp"
+
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

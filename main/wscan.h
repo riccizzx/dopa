@@ -10,8 +10,9 @@
 #define		GLOBAL_WSCAN_H
 
 
-#include "../src/features/ping_config.hpp"
 #include "../src/server/servercfg.hpp"
+#include "../src/common/net/socket.hpp"
+#include "../src/common/protocol/message.hpp"
 
 void usage()
 {
