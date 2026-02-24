@@ -19,4 +19,7 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET main PROPERTY CXX_STANDARD 20)
 endif()
 
+find_package(OpenSSL REQUIRED)
+target_link_libraries(main PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+
 # 

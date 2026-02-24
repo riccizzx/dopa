@@ -12,6 +12,8 @@
 #include <WS2tcpip.h>
 #include <winsock2.h>
 
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 
 #pragma comment(lib, "ws2_32.lib")
 
