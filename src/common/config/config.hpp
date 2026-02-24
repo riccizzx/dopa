@@ -56,4 +56,5 @@ inline void handle_error(const char* msg) {
 
 }
 
+
 #endif		// COMMON_CONFIG_CONFIG_HPP

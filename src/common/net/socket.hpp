@@ -35,12 +35,9 @@ namespace net {
     private:
 
         SOCKET sock = INVALID_SOCKET;
-		SOCKET client_sock = INVALID_SOCKET;
-        
-        char buffer = 1024;
+        SOCKET client_sock = INVALID_SOCKET;
 
         WSADATA ws;
-
 
         sockaddr_in server_addr;
 		sockaddr_in client_addr;

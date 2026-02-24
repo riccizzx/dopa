@@ -21,7 +21,6 @@ void usage()
 	std::cout << "  -h host	start host ip address to send ping requests to\n";
 	std::cout << "  -q quit	to quit program\n";
 
-	printf("\n");
 }
 
 #endif		// GLOBAL_WSCNAN_H
