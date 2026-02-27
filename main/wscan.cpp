@@ -33,12 +33,13 @@ int main()
 
             if (start == 'Y' || start == 'y') {
 
-                if (!sv.start()) {
+                if (sv.start()) {
+                    sv.handle_client_communication();
+                }
+                else {
                     printf("failed to start server\n");
                     break;
-				}
-
-
+                }
 
             }
 
